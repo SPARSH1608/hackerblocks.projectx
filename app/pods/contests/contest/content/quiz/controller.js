@@ -16,7 +16,7 @@ export default class Quiz extends Controller {
   get totalCorrect () {
     const result = this.get('submitQuizTask.lastSuccessful.value.judge_result')
     return result.questions.reduce((acc, question) => {
-      return acc + question.questionAnsweredCorrectly ? 1 : 0
+      return acc + (question.questionAnsweredCorrectly ? 1 : 0)
     }, 0)
   }
 
@@ -24,7 +24,7 @@ export default class Quiz extends Controller {
   get totalIncorrect() {
     const result = this.get('submitQuizTask.lastSuccessful.value.judge_result')
     return result.questions.reduce((acc, question) => {
-      return acc + question.questionAnsweredCorrectly ? 0 : 1
+      return acc + (question.questionAnsweredCorrectly ? 0 : 1)
     }, 0)
   }
 
